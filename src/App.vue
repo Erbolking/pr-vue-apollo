@@ -7,7 +7,6 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-import ALL_VIDEOS from './allVideos.gql';
 import gql from "graphql-tag";
 
 export default {
@@ -18,7 +17,11 @@ export default {
   apollo: {
     // Simple query that will update the 'hello' vue property
     allVideos: {
-      query: gql`${ALL_VIDEOS}
+      query: gql`query {
+        allVideos(first: 2) {
+          id
+        }
+      }`
     }
   }
 };
